@@ -5,7 +5,7 @@ export const PictureItem = ({picture}) => {
             <p>{picture.id}</p>
             <p>{picture.title}</p>
          </div>
-         <img src={picture.url} alt="example" loading="lazy" />
+         <img src={picture.url} alt="example" />
       </div>
    )
 }

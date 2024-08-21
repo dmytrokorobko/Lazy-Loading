@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useCallback, useEffect, useState } from 'react';
-import { PictureItem } from './PictureItem';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 
 const server = 'https://jsonplaceholder.typicode.com/photos';
@@ -13,6 +12,9 @@ function App() {
   const [pictureIndex, setPictureIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const loadingPicturesCount = 5;
+
+  //if PictureItem was not exported as default component
+  const PictureItem = React.lazy(() => import('./PictureItem').then(module => ({default: module.PictureItem})));
 
   //load albums when component loads
   const fetchAlbums = useCallback(async () => {
@@ -92,15 +94,17 @@ function App() {
           )}
         </ul>
         <h1>Pictures</h1>
-        <ul className='pictures'>
-          {pictures && pictures.length > 0 ? (
-            pictures.map(picture => (
-              <li key={picture.id}><PictureItem picture={picture} /></li>
-            ))
-          ) : (
-            <p>Sorry, no pictures here...</p>
-          )}
-        </ul>
+        <Suspense fallback={<div><p>Loading...</p></div>}>
+          <ul className='pictures'>
+            {pictures && pictures.length > 0 ? (
+              pictures.map(picture => (
+                <li key={picture.id}><PictureItem picture={picture} /></li>
+              ))
+            ) : (
+              <p>Sorry, no pictures here...</p>
+            )}
+          </ul>
+        </Suspense>
       </header>
     </div>
   );
