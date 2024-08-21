@@ -2,6 +2,10 @@
 
 This project is a simple React-based picture gallery that fetches photos from the JSONPlaceholder API. The application features pagination with lazy loading, allowing more pictures to load as the user scrolls down the page. Users can also filter pictures by album ID using a set of buttons.
 
+## Live Version
+
+You can view the live version of the project here: [Lazy Loading Project](https://dmytrokorobko.github.io/Lazy-Loading/)
+
 ## Features
 
 - **Fetch Albums**: Fetches and displays album IDs from the JSONPlaceholder API.
