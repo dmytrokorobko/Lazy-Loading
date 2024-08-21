@@ -19,8 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  font-size: 16px;
   color: white;
 }
 
@@ -35,4 +35,61 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  list-style: none;
+  display: grid;
+  justify-content: center;
+}
+
+ul.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+ul.pagination button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul.pagination button.active {
+  background-color: #61dafb;
+  color: #fff;
+}
+
+ul.pictures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+ul.pictures li {
+  width: 350px;
+  display: flex;
+  border: 1px solid #fff;
+  padding: 15px;
+  justify-content: center;
+}
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.picture div {
+  display: flex;
+  column-gap: 10px;
+  flex-grow: 1;
+}
+
+.picture div p:last-child {
+  font-weight: 700;
+}
+
+.picture img {
+  width: 300px;  
 }
